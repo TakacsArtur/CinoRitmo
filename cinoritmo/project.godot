@@ -11,5 +11,11 @@ config_version=5
 [application]
 
 config/name="CinoRitmo"
+run/main_scene="res://01/01_01.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=84
+window/size/viewport_height=48
