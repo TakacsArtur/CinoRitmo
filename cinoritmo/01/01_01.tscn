@@ -1,9 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=11 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
+[ext_resource type="Texture2D" uid="uid://cqm0bkimru2vg" path="res://Assets/Song_Images/2/2_01_slices/00.png" id="2_576w5"]
+[ext_resource type="Texture2D" uid="uid://cem0tmqn2un7m" path="res://Assets/Song_Images/2/2_01_slices/01.png" id="3_secbu"]
+[ext_resource type="Texture2D" uid="uid://kmxywpvb6i6w" path="res://Assets/Song_Images/2/2_01_slices/02.png" id="4_av275"]
+[ext_resource type="Texture2D" uid="uid://d2560agi2cmc6" path="res://Assets/Song_Images/2/2_01_slices/10.png" id="5_7381s"]
+[ext_resource type="Texture2D" uid="uid://budw6pb85jk4" path="res://Assets/Song_Images/2/2_01_slices/11.png" id="6_2my2e"]
+[ext_resource type="Texture2D" uid="uid://cg4g3j5eix8fu" path="res://Assets/Song_Images/2/2_01_slices/12.png" id="7_6kt6y"]
+[ext_resource type="Texture2D" uid="uid://qpyerxn4ajan" path="res://Assets/Song_Images/2/2_01_slices/20.png" id="8_mttlm"]
+[ext_resource type="Texture2D" uid="uid://c13kpal8xgnut" path="res://Assets/Song_Images/2/2_01_slices/21.png" id="9_e4slk"]
+[ext_resource type="Texture2D" uid="uid://bgfkaa0rfddrg" path="res://Assets/Song_Images/2/2_01_slices/22.png" id="10_ooeje"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(42, 24)
 texture = ExtResource("1_1odnx")
+
+[node name="00" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(14, 40)
+texture = ExtResource("2_576w5")
+
+[node name="01" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(14, 23)
+texture = ExtResource("3_secbu")
+
+[node name="02" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(70, 9)
+texture = ExtResource("4_av275")
+
+[node name="10" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(42, 40)
+texture = ExtResource("5_7381s")
+
+[node name="11" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(42, 24.25)
+scale = Vector2(1, 1.03333)
+texture = ExtResource("6_2my2e")
+
+[node name="12" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(42, 8.25)
+scale = Vector2(1, 0.970588)
+texture = ExtResource("7_6kt6y")
+
+[node name="20" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(70, 41)
+texture = ExtResource("8_mttlm")
+
+[node name="21" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(70, 26)
+texture = ExtResource("9_e4slk")
+
+[node name="22" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(70, 7)
+texture = ExtResource("10_ooeje")
