@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=10 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
 [ext_resource type="Script" path="res://01/player_contrrol.gd" id="2_nd7de"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d4khrceasx376" path="res://Assets/Jpegs/Beatmarker/beatmarker_2.png" id="5_anyw3"]
 [ext_resource type="Texture2D" uid="uid://c6o5jjpvcqfly" path="res://Assets/Jpegs/General/temp_holdover.png" id="6_rjx1h"]
 [ext_resource type="Texture2D" uid="uid://o31moht0nf5g" path="res://Assets/Jpegs/Notemarker/noteMarker.jpg" id="6_vl30o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxxpv"]
+size = Vector2(8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xh6vn"]
 animations = [{
@@ -26,19 +29,37 @@ size = Vector2(2.5, 38)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(329, 25)
-scale = Vector2(7.85714, 1)
-texture = ExtResource("1_1odnx")
+[node name="TempHoldover" type="Sprite2D" parent="."]
+position = Vector2(-501, 25)
+texture = ExtResource("6_rjx1h")
 
 [node name="Background2" type="Sprite2D" parent="."]
 position = Vector2(-1158, 25)
 scale = Vector2(3.7381, 1)
 texture = ExtResource("1_1odnx")
 
-[node name="TempHoldover" type="Sprite2D" parent="."]
-position = Vector2(-501, 25)
-texture = ExtResource("6_rjx1h")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(329, 25)
+scale = Vector2(7.85714, 1)
+texture = ExtResource("1_1odnx")
+
+[node name="NoteMarker2" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(-190, 32)
+texture = ExtResource("6_vl30o")
+
+[node name="NoteMarker" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(-190, 44)
+texture = ExtResource("6_vl30o")
+
+[node name="TopWall" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(-190, 20)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+shape = SubResource("RectangleShape2D_cxxpv")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-1082, 7)
@@ -60,18 +81,3 @@ speed_scale = 0.5
 position = Vector2(-192.75, 23)
 shape = SubResource("RectangleShape2D_tknu1")
 debug_color = Color(0.630455, 0.529542, 0, 0.42)
-
-[node name="NoteMarker2" type="Sprite2D" parent="CharacterBody2D"]
-texture_filter = 2
-position = Vector2(892, 25)
-texture = ExtResource("6_vl30o")
-
-[node name="NoteMarker" type="Sprite2D" parent="CharacterBody2D"]
-texture_filter = 2
-position = Vector2(892, 37)
-texture = ExtResource("6_vl30o")
-
-[node name="NoteMarker3" type="Sprite2D" parent="CharacterBody2D"]
-texture_filter = 2
-position = Vector2(892, 13)
-texture = ExtResource("6_vl30o")
