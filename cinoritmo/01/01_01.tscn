@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=9 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
 [ext_resource type="Script" path="res://01/player_contrrol.gd" id="2_nd7de"]
-[ext_resource type="Texture2D" uid="uid://cg8kn1e72t4m0" path="res://Assets/Jpegs/General/note_1.png" id="3_ncnj2"]
 [ext_resource type="Texture2D" uid="uid://bbvbsdgy26ek4" path="res://Assets/Jpegs/Beatmarker/beatmarker.png" id="4_2mq13"]
 [ext_resource type="Texture2D" uid="uid://d4khrceasx376" path="res://Assets/Jpegs/Beatmarker/beatmarker_2.png" id="5_anyw3"]
-[ext_resource type="Texture2D" uid="uid://bn3d752gn4knv" path="res://Assets/Jpegs/General/temp.png" id="5_v23ih"]
 [ext_resource type="Texture2D" uid="uid://c6o5jjpvcqfly" path="res://Assets/Jpegs/General/temp_holdover.png" id="6_rjx1h"]
+[ext_resource type="Texture2D" uid="uid://o31moht0nf5g" path="res://Assets/Jpegs/Notemarker/noteMarker.jpg" id="6_vl30o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xh6vn"]
 animations = [{
@@ -28,7 +27,7 @@ size = Vector2(2.5, 38)
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(329, 24)
+position = Vector2(329, 25)
 scale = Vector2(7.85714, 1)
 texture = ExtResource("1_1odnx")
 
@@ -45,33 +44,34 @@ texture = ExtResource("6_rjx1h")
 position = Vector2(-1082, 7)
 script = ExtResource("2_nd7de")
 
-[node name="Temp" type="Sprite2D" parent="CharacterBody2D"]
-texture_filter = 2
-position = Vector2(81, 2)
-texture = ExtResource("5_v23ih")
-
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-191, 18)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 2
 position = Vector2(-192.75, -1)
 scale = Vector2(2.49996, 1.25)
 sprite_frames = SubResource("SpriteFrames_xh6vn")
-frame_progress = 0.681389
+autoplay = "default"
+frame_progress = 0.220111
+speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-192.75, 23)
 shape = SubResource("RectangleShape2D_tknu1")
 debug_color = Color(0.630455, 0.529542, 0, 0.42)
 
-[node name="Note4" type="Sprite2D" parent="."]
-position = Vector2(-148, 44)
-texture = ExtResource("3_ncnj2")
+[node name="NoteMarker2" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 2
+position = Vector2(892, 25)
+texture = ExtResource("6_vl30o")
 
-[node name="Note3" type="Sprite2D" parent="."]
-position = Vector2(-148, 32)
-texture = ExtResource("3_ncnj2")
+[node name="NoteMarker" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 2
+position = Vector2(892, 37)
+texture = ExtResource("6_vl30o")
 
-[node name="Note3" type="Sprite2D" parent="Note3"]
-position = Vector2(0, -12)
-texture = ExtResource("3_ncnj2")
+[node name="NoteMarker3" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 2
+position = Vector2(892, 13)
+texture = ExtResource("6_vl30o")

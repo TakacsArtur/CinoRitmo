@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3d752gn4knv"
-path="res://.godot/imported/temp.png-488927711a55c92a6d3b1fbfeec7d499.ctex"
+uid="uid://o31moht0nf5g"
+path="res://.godot/imported/noteMarker.jpg-77eb11aef15b63cda367d2aa1a8cfe31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Jpegs/General/temp.png"
-dest_files=["res://.godot/imported/temp.png-488927711a55c92a6d3b1fbfeec7d499.ctex"]
+source_file="res://Assets/Jpegs/Notemarker/noteMarker.jpg"
+dest_files=["res://.godot/imported/noteMarker.jpg-77eb11aef15b63cda367d2aa1a8cfe31.ctex"]
 
 [params]
 
