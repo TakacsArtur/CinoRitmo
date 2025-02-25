@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=10 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
 [ext_resource type="Script" path="res://01/player_contrrol.gd" id="2_nd7de"]
@@ -21,6 +21,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tknu1"]
+size = Vector2(2.5, 38)
 
 [node name="Node2D" type="Node2D"]
 
@@ -48,13 +51,18 @@ position = Vector2(81, 2)
 texture = ExtResource("5_v23ih")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-191, 17)
+position = Vector2(-191, 18)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-192.25, -1)
-scale = Vector2(1.50002, 1.25)
+position = Vector2(-192.75, -1)
+scale = Vector2(2.49996, 1.25)
 sprite_frames = SubResource("SpriteFrames_xh6vn")
-frame_progress = 0.320846
+frame_progress = 0.681389
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-192.75, 23)
+shape = SubResource("RectangleShape2D_tknu1")
+debug_color = Color(0.630455, 0.529542, 0, 0.42)
 
 [node name="Note4" type="Sprite2D" parent="."]
 position = Vector2(-148, 44)
