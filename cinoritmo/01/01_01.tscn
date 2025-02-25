@@ -1,10 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=9 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
 [ext_resource type="Script" path="res://01/player_contrrol.gd" id="2_nd7de"]
-[ext_resource type="Texture2D" uid="uid://ktxirxuau4ep" path="res://Assets/Jpegs/General/Player.png" id="2_xp405"]
 [ext_resource type="Texture2D" uid="uid://cg8kn1e72t4m0" path="res://Assets/Jpegs/General/note_1.png" id="3_ncnj2"]
+[ext_resource type="Texture2D" uid="uid://bbvbsdgy26ek4" path="res://Assets/Jpegs/Beatmarker/beatmarker.png" id="4_2mq13"]
+[ext_resource type="Texture2D" uid="uid://d4khrceasx376" path="res://Assets/Jpegs/Beatmarker/beatmarker_2.png" id="5_anyw3"]
 [ext_resource type="Texture2D" uid="uid://bn3d752gn4knv" path="res://Assets/Jpegs/General/temp.png" id="5_v23ih"]
+[ext_resource type="Texture2D" uid="uid://c6o5jjpvcqfly" path="res://Assets/Jpegs/General/temp_holdover.png" id="6_rjx1h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xh6vn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_anyw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2mq13")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,13 +29,18 @@ position = Vector2(329, 24)
 scale = Vector2(7.85714, 1)
 texture = ExtResource("1_1odnx")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("2_nd7de")
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(-1158, 25)
+scale = Vector2(3.7381, 1)
+texture = ExtResource("1_1odnx")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture_filter = 2
-position = Vector2(5, 5)
-texture = ExtResource("2_xp405")
+[node name="TempHoldover" type="Sprite2D" parent="."]
+position = Vector2(-501, 25)
+texture = ExtResource("6_rjx1h")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-1082, 7)
+script = ExtResource("2_nd7de")
 
 [node name="Temp" type="Sprite2D" parent="CharacterBody2D"]
 texture_filter = 2
@@ -27,52 +48,22 @@ position = Vector2(81, 2)
 texture = ExtResource("5_v23ih")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(42, 24)
+position = Vector2(-191, 17)
 
-[node name="Note5" type="Sprite2D" parent="."]
-position = Vector2(126, 29)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note1" type="Sprite2D" parent="."]
-position = Vector2(5, 17)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note2" type="Sprite2D" parent="."]
-position = Vector2(153, 16)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note2" type="Sprite2D" parent="Note2"]
-position = Vector2(22, 12)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note2" type="Sprite2D" parent="Note2/Note2"]
-position = Vector2(20, 13)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note2" type="Sprite2D" parent="Note2/Note2/Note2"]
-position = Vector2(20, -19)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note2" type="Sprite2D" parent="Note2/Note2/Note2/Note2"]
-position = Vector2(25, -2)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note2" type="Sprite2D" parent="Note2/Note2/Note2/Note2/Note2"]
-position = Vector2(16, 14)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note2" type="Sprite2D" parent="Note2/Note2/Note2/Note2/Note2/Note2"]
-position = Vector2(24, -1)
-texture = ExtResource("3_ncnj2")
-
-[node name="Note2" type="Sprite2D" parent="Note2/Note2/Note2/Note2/Note2/Note2/Note2"]
-position = Vector2(24, -14)
-texture = ExtResource("3_ncnj2")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-192.25, -1)
+scale = Vector2(1.50002, 1.25)
+sprite_frames = SubResource("SpriteFrames_xh6vn")
+frame_progress = 0.320846
 
 [node name="Note4" type="Sprite2D" parent="."]
-position = Vector2(5, 42)
+position = Vector2(-148, 44)
 texture = ExtResource("3_ncnj2")
 
 [node name="Note3" type="Sprite2D" parent="."]
-position = Vector2(5, 29)
+position = Vector2(-148, 32)
+texture = ExtResource("3_ncnj2")
+
+[node name="Note3" type="Sprite2D" parent="Note3"]
+position = Vector2(0, -12)
 texture = ExtResource("3_ncnj2")
