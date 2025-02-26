@@ -187,10 +187,9 @@ position = Vector2(-191, 18)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 2
-position = Vector2(-192.75, -1)
-scale = Vector2(2.49996, 1.25)
+position = Vector2(-192.75, 21.5)
+scale = Vector2(2.49996, 6.875)
 sprite_frames = SubResource("SpriteFrames_xh6vn")
-autoplay = "default"
 frame_progress = 0.220111
 speed_scale = 0.5
 
