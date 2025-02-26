@@ -13,6 +13,7 @@ config_version=5
 config/name="CinoRitmo"
 run/main_scene="res://01/01_01.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [display]
