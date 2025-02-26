@@ -17,10 +17,13 @@ func _on_end_area_body_entered(body: Node2D) -> void:
 	curentVelocity = 0
 	if score> 2500:
 		curentVelocity = 200
+	else:
+		get_tree().change_scene_to_file("res://01/fail.tscn")
 	print(score)
 
 func _on_end_area_2_body_entered(body: Node2D) -> void:
 	curentVelocity = 40
+	$/root/Node2D/Ezseszep/zene.play()
 	
 func _on_start_area_body_entered(body: Node2D) -> void:
 	print("Entered")
