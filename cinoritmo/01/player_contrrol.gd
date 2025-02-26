@@ -15,7 +15,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 func _on_end_area_body_entered(body: Node2D) -> void:
 	curentVelocity = 0
+	if score> 2500:
+		curentVelocity = 200
 	print(score)
+
+func _on_end_area_2_body_entered(body: Node2D) -> void:
+	curentVelocity = 40
+	
 func _on_start_area_body_entered(body: Node2D) -> void:
 	print("Entered")
 	curentVelocity = 40
