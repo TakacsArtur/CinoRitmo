@@ -87,7 +87,7 @@ size = Vector2(24, 8)
 [node name="Node2D" type="Node2D"]
 
 [node name="TitelCard" type="Sprite2D" parent="."]
-position = Vector2(-501, 25)
+position = Vector2(-549, 25)
 texture = ExtResource("1_wg34e")
 
 [node name="Background2" type="Sprite2D" parent="."]
@@ -96,8 +96,8 @@ scale = Vector2(3.7381, 1)
 texture = ExtResource("1_1odnx")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(334, 25)
-scale = Vector2(7.97619, 1)
+position = Vector2(310, 25)
+scale = Vector2(8.54762, 1)
 texture = ExtResource("1_1odnx")
 
 [node name="StartArea" type="Area2D" parent="."]
@@ -379,3 +379,7 @@ shape = SubResource("RectangleShape2D_3klya")
 [connection signal="body_entered" from="EndArea" to="CharacterBody2D" method="_on_end_area_body_entered"]
 [connection signal="body_entered" from="topRow" to="CharacterBody2D" method="_on_top_row_body_entered"]
 [connection signal="body_exited" from="topRow" to="CharacterBody2D" method="_on_top_row_body_exited"]
+[connection signal="body_entered" from="midRow" to="CharacterBody2D" method="_on_mid_row_body_entered"]
+[connection signal="body_exited" from="midRow" to="CharacterBody2D" method="_on_mid_row_body_exited"]
+[connection signal="body_entered" from="bottomRow" to="CharacterBody2D" method="_on_bottom_row_body_entered"]
+[connection signal="body_exited" from="bottomRow" to="CharacterBody2D" method="_on_bottom_row_body_exited"]
