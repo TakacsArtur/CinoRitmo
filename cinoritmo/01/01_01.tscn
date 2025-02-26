@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=30 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
 [ext_resource type="Texture2D" uid="uid://cdjqggj34y1xr" path="res://Assets/Jpegs/General/titel_card.png" id="1_wg34e"]
 [ext_resource type="Script" path="res://01/player_contrrol.gd" id="2_nd7de"]
 [ext_resource type="Texture2D" uid="uid://bbvbsdgy26ek4" path="res://Assets/Jpegs/Beatmarker/beatmarker.png" id="4_2mq13"]
+[ext_resource type="AudioStream" uid="uid://cdx4a3w3ikq76" path="res://Assets/02_Hallotad_E_Hiret/zala.mp3" id="4_x6fek"]
 [ext_resource type="Texture2D" uid="uid://d4khrceasx376" path="res://Assets/Jpegs/Beatmarker/beatmarker_2.png" id="5_anyw3"]
 [ext_resource type="Texture2D" uid="uid://o31moht0nf5g" path="res://Assets/Jpegs/Notemarker/noteMarker.jpg" id="6_vl30o"]
 
@@ -100,26 +101,25 @@ position = Vector2(310, 25)
 scale = Vector2(8.54762, 1)
 texture = ExtResource("1_1odnx")
 
+[node name="Repeatarea1" type="Area2D" parent="."]
+position = Vector2(189, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Repeatarea1"]
+position = Vector2(4, 12)
+shape = SubResource("RectangleShape2D_cxxpv")
+
+[node name="01" type="AudioStreamPlayer" parent="Repeatarea1"]
+stream = ExtResource("4_x6fek")
+
 [node name="StartArea" type="Area2D" parent="."]
-position = Vector2(-190, 13)
-
-[node name="NoteMarker" type="Sprite2D" parent="StartArea"]
-texture_filter = 2
-position = Vector2(0, 24)
-texture = ExtResource("6_vl30o")
-
-[node name="NoteMarker2" type="Sprite2D" parent="StartArea"]
-texture_filter = 2
-position = Vector2(0, 12)
-texture = ExtResource("6_vl30o")
-
-[node name="Topwall" type="Sprite2D" parent="StartArea"]
-texture_filter = 2
-texture = ExtResource("6_vl30o")
+position = Vector2(-178, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartArea"]
-position = Vector2(0, 12)
+position = Vector2(4, 12)
 shape = SubResource("RectangleShape2D_cxxpv")
+
+[node name="01" type="AudioStreamPlayer" parent="StartArea"]
+stream = ExtResource("4_x6fek")
 
 [node name="EndArea" type="Area2D" parent="."]
 position = Vector2(650, 20)
@@ -142,6 +142,11 @@ texture = ExtResource("6_vl30o")
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_cxxpv")
 
+[node name="Zala" type="Node" parent="."]
+
+[node name="ZalaExternalPlayer" type="AudioStreamPlayer" parent="Zala"]
+stream = ExtResource("4_x6fek")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-1082, 7)
 script = ExtResource("2_nd7de")
@@ -162,6 +167,64 @@ speed_scale = 0.5
 position = Vector2(-192.75, 23)
 shape = SubResource("RectangleShape2D_tknu1")
 debug_color = Color(0.630455, 0.529542, 0, 0.42)
+
+[node name="topRow2" type="Area2D" parent="."]
+position = Vector2(367, 0)
+
+[node name="FirstNote" type="Sprite2D" parent="topRow2"]
+texture_filter = 2
+position = Vector2(-166, 13)
+texture = ExtResource("6_vl30o")
+
+[node name="SecondNote" type="Sprite2D" parent="topRow2"]
+texture_filter = 2
+position = Vector2(-158, 13)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="topRow2"]
+position = Vector2(-162, 13)
+shape = SubResource("RectangleShape2D_4vks1")
+
+[node name="FirstNote7" type="Sprite2D" parent="topRow2"]
+texture_filter = 2
+position = Vector2(-86, 13)
+texture = ExtResource("6_vl30o")
+
+[node name="FirstNote6" type="Sprite2D" parent="topRow2"]
+texture_filter = 2
+position = Vector2(-94, 13)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="topRow2"]
+position = Vector2(-90, 13)
+shape = SubResource("RectangleShape2D_4xpjy")
+
+[node name="FirstNote8" type="Sprite2D" parent="topRow2"]
+texture_filter = 2
+position = Vector2(-72, 13)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="topRow2"]
+position = Vector2(-72, 13)
+shape = SubResource("RectangleShape2D_b3b1k")
+
+[node name="FirstNote11" type="Sprite2D" parent="topRow2"]
+texture_filter = 2
+position = Vector2(-34, 13)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="topRow2"]
+position = Vector2(-34, 13)
+shape = SubResource("RectangleShape2D_n6ji1")
+
+[node name="FirstNote21" type="Sprite2D" parent="topRow2"]
+texture_filter = 2
+position = Vector2(89, 14)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="topRow2"]
+position = Vector2(89, 14)
+shape = SubResource("RectangleShape2D_ksfp5")
 
 [node name="topRow" type="Area2D" parent="."]
 
@@ -219,6 +282,82 @@ texture = ExtResource("6_vl30o")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="topRow"]
 position = Vector2(89, 14)
 shape = SubResource("RectangleShape2D_ksfp5")
+
+[node name="midRow2" type="Area2D" parent="."]
+position = Vector2(367, 0)
+
+[node name="FirstNote2" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(-147, 24)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="midRow2"]
+position = Vector2(-147, 24)
+shape = SubResource("RectangleShape2D_i5rqr")
+
+[node name="FirstNote4" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(-120, 25)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="midRow2"]
+position = Vector2(-120, 25)
+shape = SubResource("RectangleShape2D_d1fm1")
+
+[node name="FirstNote9" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(-60, 25)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="midRow2"]
+position = Vector2(-60, 25)
+shape = SubResource("RectangleShape2D_wfktj")
+
+[node name="FirstNote13" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(-2, 25)
+texture = ExtResource("6_vl30o")
+
+[node name="FirstNote14" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(6, 25)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="midRow2"]
+position = Vector2(2, 25)
+shape = SubResource("RectangleShape2D_4fg22")
+
+[node name="FirstNote16" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(32, 25)
+texture = ExtResource("6_vl30o")
+
+[node name="FirstNote17" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(40, 25)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="midRow2"]
+position = Vector2(36, 25)
+shape = SubResource("RectangleShape2D_tv1p4")
+
+[node name="FirstNote20" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(78, 26)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="midRow2"]
+position = Vector2(78, 26)
+shape = SubResource("RectangleShape2D_d53gh")
+
+[node name="FirstNote22" type="Sprite2D" parent="midRow2"]
+texture_filter = 2
+position = Vector2(103, 26)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="midRow2"]
+position = Vector2(103, 26)
+shape = SubResource("RectangleShape2D_0vudq")
 
 [node name="midRow" type="Area2D" parent="."]
 
@@ -294,6 +433,87 @@ texture = ExtResource("6_vl30o")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="midRow"]
 position = Vector2(103, 26)
 shape = SubResource("RectangleShape2D_0vudq")
+
+[node name="bottomRow2" type="Area2D" parent="."]
+position = Vector2(367, 0)
+
+[node name="FirstNote3" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(-133, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="bottomRow2"]
+position = Vector2(-133, 37)
+shape = SubResource("RectangleShape2D_fh70s")
+
+[node name="FirstNote5" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(-107, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="bottomRow2"]
+position = Vector2(-107, 37)
+shape = SubResource("RectangleShape2D_5c4jm")
+
+[node name="FirstNote10" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(-46, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottomRow2"]
+position = Vector2(-46, 37)
+shape = SubResource("RectangleShape2D_5wpry")
+
+[node name="FirstNote12" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(-17, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bottomRow2"]
+position = Vector2(-17, 37)
+shape = SubResource("RectangleShape2D_m2cp3")
+
+[node name="FirstNote15" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(20, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bottomRow2"]
+position = Vector2(20, 37)
+shape = SubResource("RectangleShape2D_oj0la")
+
+[node name="FirstNote18" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(56, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bottomRow2"]
+position = Vector2(60, 37)
+shape = SubResource("RectangleShape2D_scvof")
+
+[node name="FirstNote19" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(64, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="FirstNote23" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(119, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="FirstNote24" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(127, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="FirstNote25" type="Sprite2D" parent="bottomRow2"]
+texture_filter = 2
+position = Vector2(135, 37)
+texture = ExtResource("6_vl30o")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="bottomRow2"]
+position = Vector2(127, 37)
+shape = SubResource("RectangleShape2D_3klya")
 
 [node name="bottomRow" type="Area2D" parent="."]
 
@@ -375,11 +595,18 @@ texture = ExtResource("6_vl30o")
 position = Vector2(127, 37)
 shape = SubResource("RectangleShape2D_3klya")
 
+[connection signal="body_entered" from="Repeatarea1" to="CharacterBody2D" method="_on_start_area_body_entered"]
 [connection signal="body_entered" from="StartArea" to="CharacterBody2D" method="_on_start_area_body_entered"]
 [connection signal="body_entered" from="EndArea" to="CharacterBody2D" method="_on_end_area_body_entered"]
+[connection signal="body_entered" from="topRow2" to="CharacterBody2D" method="_on_top_row_body_entered"]
+[connection signal="body_exited" from="topRow2" to="CharacterBody2D" method="_on_top_row_body_exited"]
 [connection signal="body_entered" from="topRow" to="CharacterBody2D" method="_on_top_row_body_entered"]
 [connection signal="body_exited" from="topRow" to="CharacterBody2D" method="_on_top_row_body_exited"]
+[connection signal="body_entered" from="midRow2" to="CharacterBody2D" method="_on_mid_row_body_entered"]
+[connection signal="body_exited" from="midRow2" to="CharacterBody2D" method="_on_mid_row_body_exited"]
 [connection signal="body_entered" from="midRow" to="CharacterBody2D" method="_on_mid_row_body_entered"]
 [connection signal="body_exited" from="midRow" to="CharacterBody2D" method="_on_mid_row_body_exited"]
+[connection signal="body_entered" from="bottomRow2" to="CharacterBody2D" method="_on_bottom_row_body_entered"]
+[connection signal="body_exited" from="bottomRow2" to="CharacterBody2D" method="_on_bottom_row_body_exited"]
 [connection signal="body_entered" from="bottomRow" to="CharacterBody2D" method="_on_bottom_row_body_entered"]
 [connection signal="body_exited" from="bottomRow" to="CharacterBody2D" method="_on_bottom_row_body_exited"]

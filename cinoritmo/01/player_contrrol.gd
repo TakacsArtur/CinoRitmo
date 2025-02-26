@@ -13,38 +13,31 @@ func _physics_process(delta: float) -> void:
 	#going right 'ere
 	velocity.x = curentVelocity
 	move_and_slide()
-
 func _on_end_area_body_entered(body: Node2D) -> void:
 	curentVelocity = 0
 	print(score)
-	
 func _on_start_area_body_entered(body: Node2D) -> void:
 	print("Entered")
-	curentVelocity = 60
-
+	curentVelocity = 40
+	$/root/Node2D/Zala/ZalaExternalPlayer.play()
 func _on_top_row_body_entered(body: Node2D) -> void:
 	intopRow = true
 	print("EnteredTopRow")
 func _on_top_row_body_exited(body: Node2D) -> void:
 	intopRow = false
 	print("ExitedTopRow")
-
 func _on_mid_row_body_entered(body: Node2D) -> void:
 	inmidRow = true
 	print("EnteredMidRow")
-
 func _on_mid_row_body_exited(body: Node2D) -> void:
 	inmidRow = false
 	print("ExitedMidRow")
-	
 func _on_bottom_row_body_entered(body: Node2D) -> void:
 	inbotRow = true
 	print("EnteredBotRow")
-
 func _on_bottom_row_body_exited(body: Node2D) -> void:
 	inbotRow = false
 	print("ExitedBotRow")
-	
 func _process(delta: float) -> void:
 	#firstly we check if the strumbar is engaged SHOULD IT BE
 	if Input.is_action_pressed("strum"):
@@ -83,10 +76,6 @@ func _process(delta: float) -> void:
 	##reset the mistake/correctplay, if none of the conditions apply
 	mistake = false
 	correctplay = false
-
-	
-
-	
 func calculateScore() -> void:
 	if mistake == true:
 		score -= 45
