@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=79 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
 [ext_resource type="Script" path="res://01/player_contrrol.gd" id="2_nd7de"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bbuwd5l4wgbj6" path="res://Assets/Jpegs/General/titel_card2.png" id="9_qao3i"]
 [ext_resource type="AudioStream" uid="uid://bcbchdx6niueg" path="res://Assets/01_Meg_azt/meg_azt.mp3" id="10_xl374"]
 [ext_resource type="Texture2D" uid="uid://cvngsleywifcr" path="res://Assets/Jpegs/General/end_card.png" id="11_f6oxk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7eu8"]
+size = Vector2(3.57953, 108.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxxpv"]
 size = Vector2(8, 32)
@@ -229,29 +232,29 @@ size = Vector2(2.5, 38)
 stream = ExtResource("4_x6fek")
 
 [node name="Background2" type="Sprite2D" parent="."]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(-204, 25)
 scale = Vector2(3.7381, 1)
 texture = ExtResource("1_1odnx")
 
 [node name="01Concept2" type="Sprite2D" parent="."]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(-699, 25)
 texture = ExtResource("7_ltxpb")
 
 [node name="Background3" type="Sprite2D" parent="."]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(-1241, 25)
 texture = ExtResource("1_1odnx")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(898, 25)
 scale = Vector2(22.5476, 1)
 texture = ExtResource("1_1odnx")
 
 [node name="Success" type="Sprite2D" parent="."]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(834, 26)
 texture = ExtResource("8_453tl")
 
@@ -267,9 +270,18 @@ position = Vector2(1632, 25)
 texture = ExtResource("9_qao3i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(3148, 25)
 texture = ExtResource("11_f6oxk")
+
+[node name="Endend" type="Area2D" parent="."]
+position = Vector2(-204, 25)
+scale = Vector2(3.7381, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endend"]
+position = Vector2(796.126, -7)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_y7eu8")
 
 [node name="Repeatarea1" type="Area2D" parent="."]
 texture_filter = 2
@@ -1148,6 +1160,7 @@ position = Vector2(-1082, 7)
 script = ExtResource("2_nd7de")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visible = false
 texture_filter = 2
 position = Vector2(-192.75, 21.5)
 scale = Vector2(2.49996, 6.875)
@@ -1163,6 +1176,7 @@ position = Vector2(-192.75, 17)
 shape = SubResource("RectangleShape2D_tknu1")
 debug_color = Color(0.630455, 0.529542, 0, 0.42)
 
+[connection signal="body_entered" from="Endend" to="CharacterBody2D" method="_on_endend_body_entered"]
 [connection signal="body_entered" from="Repeatarea1" to="CharacterBody2D" method="_on_start_area_body_entered"]
 [connection signal="body_entered" from="StartArea" to="CharacterBody2D" method="_on_start_area_body_entered"]
 [connection signal="body_entered" from="EndArea2" to="CharacterBody2D" method="_on_end_area_2_body_entered"]

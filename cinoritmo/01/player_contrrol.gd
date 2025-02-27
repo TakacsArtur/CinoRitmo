@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var curentVelocity = 200
-var passscore = 2500
+var passscore = 0
 var score = 0
 var inside = false
 var intopRow = false
@@ -18,17 +18,20 @@ func _on_end_area_body_entered(body: Node2D) -> void:
 	curentVelocity = 0
 	if score> passscore:
 		curentVelocity = 200
+		$AnimatedSprite2D.visible = false
 	else:
 		get_tree().change_scene_to_file("res://01/fail.tscn")
 	print(score)
 
 func _on_end_area_2_body_entered(body: Node2D) -> void:
 	curentVelocity = 40
+	$AnimatedSprite2D.visible = true
 	$/root/Node2D/Ezseszep/zene.play()
-	
+
 func _on_start_area_body_entered(body: Node2D) -> void:
 	print("Entered")
 	curentVelocity = 40
+	$AnimatedSprite2D.visible = true
 	$/root/Node2D/Zala/ZalaExternalPlayer.play()
 func _on_top_row_body_entered(body: Node2D) -> void:
 	intopRow = true
@@ -101,3 +104,8 @@ func _on_end_timer_timeout() -> void:
 func _on_scene_end_body_entered(body: Node2D) -> void:
 	curentVelocity = 0
 	$/root/Node2D/SceneEnd/EndTimer.start() # Replace with function body.
+
+
+func _on_endend_body_entered(body: Node2D) -> void:
+	curentVelocity = 200
+	$AnimatedSprite2D.visible = false
