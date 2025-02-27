@@ -1,5 +1,6 @@
 extends CharacterBody2D
 var curentVelocity = 200
+var passscore = 2500
 var score = 0
 var inside = false
 var intopRow = false
@@ -15,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 func _on_end_area_body_entered(body: Node2D) -> void:
 	curentVelocity = 0
-	if score> 2500:
+	if score> passscore:
 		curentVelocity = 200
 	else:
 		get_tree().change_scene_to_file("res://01/fail.tscn")
@@ -94,3 +95,9 @@ func calculateScore() -> void:
 		score +=0
 	print(score)
 	
+func _on_end_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://01/menu.tscn")
+
+func _on_scene_end_body_entered(body: Node2D) -> void:
+	curentVelocity = 0
+	$/root/Node2D/SceneEnd/EndTimer.start() # Replace with function body.
