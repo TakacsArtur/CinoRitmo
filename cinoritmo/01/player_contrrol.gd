@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var curentVelocity = 200
-var passscore = 0
+var passscore = 2500
 var score = 0
 var inside = false
 var intopRow = false
@@ -102,10 +102,11 @@ func _on_end_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://01/menu.tscn")
 
 func _on_scene_end_body_entered(body: Node2D) -> void:
-	curentVelocity = 0
+	curentVelocity = 0 
 	$/root/Node2D/SceneEnd/EndTimer.start() # Replace with function body.
 
 
 func _on_endend_body_entered(body: Node2D) -> void:
 	curentVelocity = 200
+	$/root/Node2D/SceneEnd/ScoreDisplay.text = str( "Score: " , score)
 	$AnimatedSprite2D.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=80 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
 [ext_resource type="Script" path="res://01/player_contrrol.gd" id="2_nd7de"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dhue6xcll2cen" path="res://Assets/Jpegs/General/01Concept2.png" id="7_ltxpb"]
 [ext_resource type="Texture2D" uid="uid://dbv6ccav7vr0x" path="res://Assets/Jpegs/General/success.png" id="8_453tl"]
 [ext_resource type="Texture2D" uid="uid://bbuwd5l4wgbj6" path="res://Assets/Jpegs/General/titel_card2.png" id="9_qao3i"]
+[ext_resource type="FontFile" uid="uid://bn5bljgr5olka" path="res://Assets/Stock_assets/nokia_3310_fonts_2024/ark_@somepx/Ark.otf" id="9_wsy68"]
 [ext_resource type="AudioStream" uid="uid://bcbchdx6niueg" path="res://Assets/01_Meg_azt/meg_azt.mp3" id="10_xl374"]
 [ext_resource type="Texture2D" uid="uid://cvngsleywifcr" path="res://Assets/Jpegs/General/end_card.png" id="11_f6oxk"]
 
@@ -280,7 +281,6 @@ scale = Vector2(3.7381, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Endend"]
 position = Vector2(796.126, -7)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_y7eu8")
 
 [node name="Repeatarea1" type="Area2D" parent="."]
@@ -1147,8 +1147,25 @@ stream = ExtResource("10_xl374")
 [node name="SceneEnd" type="Area2D" parent="."]
 texture_filter = 2
 
+[node name="ScoreDisplay" type="RichTextLabel" parent="SceneEnd"]
+offset_left = 3443.0
+offset_top = 16.0
+offset_right = 3579.0
+offset_bottom = 56.0
+theme_override_colors/default_color = Color(0.262745, 0.321569, 0.239216, 1)
+theme_override_colors/font_selected_color = Color(0.780392, 0.941176, 0.847059, 1)
+theme_override_colors/font_outline_color = Color(0.780392, 0.941176, 0.847059, 1)
+theme_override_colors/font_shadow_color = Color(0.780392, 0.941176, 0.847059, 1)
+theme_override_fonts/normal_font = ExtResource("9_wsy68")
+theme_override_font_sizes/bold_italics_font_size = 5
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 4
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 2
+text = "Score "
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneEnd"]
-position = Vector2(3523, 22)
+position = Vector2(3561, 22)
 shape = SubResource("RectangleShape2D_qu50c")
 
 [node name="EndTimer" type="Timer" parent="SceneEnd"]
