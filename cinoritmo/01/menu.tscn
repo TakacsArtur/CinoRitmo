@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://tvnnu8fjufjc" path="res://Assets/Menu theme/menu_theme.mp3" id="3_xqqrp"]
 
 [node name="Node2D" type="Node2D"]
+texture_filter = 1
 
 [node name="menusprite" type="Sprite2D" parent="."]
 texture_filter = 1

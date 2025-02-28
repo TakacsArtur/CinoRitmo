@@ -85,6 +85,12 @@ func _process(delta: float) -> void:
 				mistake = true
 				print("Mistake detected bot")
 	calculateScore()
+	if Input.is_action_just_released("strum"):
+		$/root/Node2D/CharacterBody2D/TopEmitter.emitting = false
+		$/root/Node2D/CharacterBody2D/MidEmitter.emitting = false
+		$/root/Node2D/CharacterBody2D/BottomEmitter.emitting = false
+		
+	
 
 	##reset the mistake/correctplay, if none of the conditions apply
 	mistake = false
@@ -92,8 +98,17 @@ func _process(delta: float) -> void:
 func calculateScore() -> void:
 	if mistake == true:
 		score -= 45
+		$/root/Node2D/CharacterBody2D/TopEmitter.emitting = false
+		$/root/Node2D/CharacterBody2D/MidEmitter.emitting = false
+		$/root/Node2D/CharacterBody2D/BottomEmitter.emitting = false
 	if mistake == false and correctplay == true:
 		score += 50
+		if intopRow:
+			$/root/Node2D/CharacterBody2D/TopEmitter.emitting = true
+		if inmidRow:
+			$/root/Node2D/CharacterBody2D/MidEmitter.emitting = true
+		if inbotRow:
+			$/root/Node2D/CharacterBody2D/BottomEmitter.emitting = true
 	else:
 		score +=0
 	print(score)

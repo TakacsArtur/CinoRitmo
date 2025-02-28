@@ -1,10 +1,9 @@
-[gd_scene load_steps=80 format=3 uid="uid://ttqelvba0dsy"]
+[gd_scene load_steps=81 format=3 uid="uid://ttqelvba0dsy"]
 
 [ext_resource type="Texture2D" uid="uid://damkd2c0gvcye" path="res://Assets/Jpegs/General/background.png" id="1_1odnx"]
 [ext_resource type="Script" path="res://01/player_contrrol.gd" id="2_nd7de"]
 [ext_resource type="Texture2D" uid="uid://bbvbsdgy26ek4" path="res://Assets/Jpegs/Beatmarker/beatmarker.png" id="4_2mq13"]
 [ext_resource type="AudioStream" uid="uid://cdx4a3w3ikq76" path="res://Assets/02_Hallotad_E_Hiret/zala.mp3" id="4_x6fek"]
-[ext_resource type="Texture2D" uid="uid://d4khrceasx376" path="res://Assets/Jpegs/Beatmarker/beatmarker_2.png" id="5_anyw3"]
 [ext_resource type="Texture2D" uid="uid://o31moht0nf5g" path="res://Assets/Jpegs/Notemarker/noteMarker.jpg" id="6_vl30o"]
 [ext_resource type="Texture2D" uid="uid://dhue6xcll2cen" path="res://Assets/Jpegs/General/01Concept2.png" id="7_ltxpb"]
 [ext_resource type="Texture2D" uid="uid://dbv6ccav7vr0x" path="res://Assets/Jpegs/General/success.png" id="8_453tl"]
@@ -12,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://bn5bljgr5olka" path="res://Assets/Stock_assets/nokia_3310_fonts_2024/ark_@somepx/Ark.otf" id="9_wsy68"]
 [ext_resource type="AudioStream" uid="uid://bcbchdx6niueg" path="res://Assets/01_Meg_azt/meg_azt.mp3" id="10_xl374"]
 [ext_resource type="Texture2D" uid="uid://cvngsleywifcr" path="res://Assets/Jpegs/General/end_card.png" id="11_f6oxk"]
+[ext_resource type="Texture2D" uid="uid://10kemu3uw8dm" path="res://Assets/Jpegs/Notemarker/green.png" id="12_7k75w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7eu8"]
 size = Vector2(3.57953, 108.5)
@@ -48,6 +48,10 @@ size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu8d2"]
 size = Vector2(8, 8)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_afa06"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uu6s"]
 size = Vector2(8, 8)
@@ -208,22 +212,18 @@ size = Vector2(8, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu50c"]
 size = Vector2(36, 325.5)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xh6vn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_anyw3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_2mq13")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tknu1"]
-size = Vector2(2.5, 38)
+size = Vector2(2, 48)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8sy3f"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 10.0
+spread = 25.0
+gravity = Vector3(0, 0, 0)
 
 [node name="Node2D" type="Node2D"]
 
@@ -409,8 +409,13 @@ position = Vector2(2021, 16)
 texture = ExtResource("6_vl30o")
 
 [node name="Note27" type="Sprite2D" parent="topRow2"]
+texture_filter = 1
 position = Vector2(2083, 16)
 texture = ExtResource("6_vl30o")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="topRow2/Note27"]
+process_material = SubResource("ParticleProcessMaterial_afa06")
+lifetime = 0.2
 
 [node name="Note31" type="Sprite2D" parent="topRow2"]
 position = Vector2(2134, 17)
@@ -1176,22 +1181,47 @@ texture_filter = 2
 position = Vector2(-1082, 7)
 script = ExtResource("2_nd7de")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-visible = false
-texture_filter = 2
-position = Vector2(-192.75, 21.5)
-scale = Vector2(2.49996, 6.875)
-sprite_frames = SubResource("SpriteFrames_xh6vn")
-frame_progress = 0.220111
-speed_scale = 0.5
-
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-191, 18)
 
+[node name="AnimatedSprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-193, 19)
+texture = ExtResource("4_2mq13")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-192.75, 17)
+position = Vector2(-193, 18)
 shape = SubResource("RectangleShape2D_tknu1")
 debug_color = Color(0.630455, 0.529542, 0, 0.42)
+
+[node name="MidEmitter" type="GPUParticles2D" parent="CharacterBody2D"]
+position = Vector2(-193, 18)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_8sy3f")
+texture = ExtResource("12_7k75w")
+lifetime = 0.5
+speed_scale = 12.91
+explosiveness = 0.22
+
+[node name="TopEmitter" type="GPUParticles2D" parent="CharacterBody2D"]
+position = Vector2(-193, 5)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_8sy3f")
+texture = ExtResource("12_7k75w")
+lifetime = 0.5
+speed_scale = 12.91
+explosiveness = 0.22
+
+[node name="BottomEmitter" type="GPUParticles2D" parent="CharacterBody2D"]
+position = Vector2(-193, 30)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_8sy3f")
+texture = ExtResource("12_7k75w")
+lifetime = 0.5
+speed_scale = 12.91
+explosiveness = 0.22
 
 [connection signal="body_entered" from="Endend" to="CharacterBody2D" method="_on_endend_body_entered"]
 [connection signal="body_entered" from="Repeatarea1" to="CharacterBody2D" method="_on_start_area_body_entered"]
